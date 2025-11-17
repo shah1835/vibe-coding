@@ -86,17 +86,9 @@ scrollElements.forEach(el => observer.observe(el));
 --------------------------- */
 document.querySelectorAll('.social-icon').forEach(icon => {
   icon.addEventListener('click', () => {
-    switch(icon.alt) {
-      case 'Facebook':
-        window.open('https://facebook.com', '_blank');
-        break;
-      case 'Twitter':
-        window.open('https://twitter.com', '_blank');
-        break;
-      case 'Instagram':
-        window.open('https://instagram.com', '_blank');
-        break;
-    }
+    if(icon.alt === 'Facebook') window.open('https://facebook.com', '_blank');
+    else if(icon.alt === 'Twitter') window.open('https://twitter.com', '_blank');
+    else if(icon.alt === 'Instagram') window.open('https://instagram.com', '_blank');
   });
 });
 
