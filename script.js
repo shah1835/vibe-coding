@@ -82,13 +82,25 @@ const observer = new IntersectionObserver(entries => {
 scrollElements.forEach(el => observer.observe(el));
 
 /* ---------------------------
-   Social Icon Clicks
+   Social Icon Clicks (Footer + Features)
 --------------------------- */
 document.querySelectorAll('.social-icon').forEach(icon => {
   icon.addEventListener('click', () => {
-    if(icon.alt === 'Facebook') window.open('https://facebook.com', '_blank');
-    else if(icon.alt === 'Twitter') window.open('https://twitter.com', '_blank');
-    else if(icon.alt === 'Instagram') window.open('https://instagram.com', '_blank');
+    const alt = icon.getAttribute('alt').toLowerCase();
+
+    switch(alt) {
+      case 'facebook':
+        window.open('https://facebook.com', '_blank');
+        break;
+      case 'twitter':
+        window.open('https://twitter.com', '_blank');
+        break;
+      case 'instagram':
+        window.open('https://instagram.com', '_blank');
+        break;
+      default:
+        console.warn('No link set for this icon:', alt);
+    }
   });
 });
 
