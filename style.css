@@ -1,0 +1,234 @@
+:root {
+  --light-bg: #dadbd9;
+  --dark-bg: #415557;
+  --accent-light: #b9968d;
+  --accent-dark: #b27236;
+}
+
+body, html {
+  margin:0;
+  padding:0;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+  background:var(--light-bg);
+  color:var(--dark-bg);
+}
+
+h2 {
+  text-align:center;
+  margin:40px 0;
+  font-size:2.5rem;
+  color:var(--dark-bg);
+}
+
+.animate-on-scroll {
+  opacity:0;
+  transform:translateY(50px);
+  transition:all 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ---------------------------
+   Sections
+--------------------------- */
+section {
+  padding:60px 20px;
+  border-radius:20px;
+  margin:40px auto;
+  max-width:1200px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  background: #f0eee8; /* uniform background */
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--dark-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--light-bg);
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav .nav-links li a {
+  text-decoration: none;
+  color: var(--light-bg);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav .nav-links li a:hover {
+  color: var(--accent-light);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 25px;
+  background: var(--light-bg);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: var(--dark-bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: right 0.3s ease;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li a {
+    font-size: 1.5rem;
+  }
+
+  /* Hamburger animation when open */
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+
+/* Hero Section */
+header {
+  position: relative;
+  text-align: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(135deg,#415557,#b9968d,#b27236);
+}
+
+header .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  height: 100%;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+header p {
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+/* Countdown container */
+header .countdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+header .countdown-container p:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+header .countdown-container #time {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+/* Progress bar */
+header .progress-bar {
+  width: 100%;
+  height: 18px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+header .progress-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  transition: width 1s linear, box-shadow 0.5s ease;
+}
+
+header .progress-fill.red-glow {
+  animation: pulse 1s infinite;
+  box-shadow: 0 0 15px #f86c6b;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px #f86c6b; }
+  50% { box-shadow: 0 0 25px #f86c6b; }
+  100% { box-shadow: 0 0 15px #f86c6b; }
+}
+
+/* Responsive adjustments */
+@media(max-width:768px){
+  header h1 { font-size: 2rem; }
+  header p { font-size: 1rem; }
+  header .progress-bar { height: 14px; }
+  header .countdown-container #time { font-size: 1.2rem; }
+}
