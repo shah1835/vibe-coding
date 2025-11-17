@@ -352,3 +352,158 @@ header .progress-fill.red-glow {
   transform:scale(1.2);
 }
 
+/* Testimonials */
+.testimonial-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.testimonial-slider {
+  position: relative;
+  width: 100%;
+  min-height: 150px;
+  overflow: hidden;
+}
+
+.testimonial-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  text-align: center;
+  padding: 20px;
+  background: var(--dark-bg);
+  color: var(--light-bg);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.testimonial-slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.testimonial-slide p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.testimonial-slide h4 {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent-light);
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.testimonial-dots span {
+  width: 14px;
+  height: 14px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.testimonial-dots span.active {
+  background: var(--accent-dark);
+  transform: scale(1.2);
+}
+
+/* Carousel buttons for testimonials */
+.testimonial-container .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(65,85,87,0.7);
+  border: none;
+  color: #dadbd9;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+.testimonial-container .carousel-btn.prev { left: 10px; }
+.testimonial-container .carousel-btn.next { right: 10px; }
+
+.testimonial-container .carousel-btn:hover {
+  background: rgba(178,114,54,0.8);
+}
+
+/* Spin-to-Win Section */
+.spin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.wheel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+#spinWheel {
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transform: rotate(0deg);
+  transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.wheel-container .pointer {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: var(--accent-dark);
+}
+
+#spinResult {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--dark-bg);
+  min-height: 1.5rem;
+}
+
+#spinBtn {
+  padding: 18px 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg,#b9968d,#b27236);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(178,114,54,0.4);
+  transition: all 0.3s ease;
+}
+
+#spinBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(178,114,54,0.6);
+}
+
+/* Responsive Spin */
+@media(max-width:768px){
+  .wheel-container { width: 220px; height: 220px; }
+  #spinWheel { width: 100%; height: 100%; }
+}
